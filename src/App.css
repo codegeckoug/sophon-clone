@@ -1,0 +1,751 @@
+.navbar {
+  pointer-events: auto !important;
+  font-size: var(--typography-font-size-1-rem);
+  line-height: var(--typography-font-size-15-rem);
+  font-feature-settings: "liga" off, "clig" off;
+  font-weight: 400;
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+    var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+    var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+    var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+    var(--tw-backdrop-sepia);
+  --tw-backdrop-blur: blur(32px);
+  padding-block: calc(var(--spacing) * 3);
+  padding-inline: calc(var(--spacing) * 3);
+  background-color: var(--material-glass);
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 1px;
+  row-gap: calc(var(--spacing) * 2);
+  column-gap: calc(var(--spacing) * 3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  width: 100%;
+  z-index: 20;
+  top: calc(var(--spacing) * 0);
+  position: sticky;
+}
+
+@media (min-width: 576px) {
+  .navbar {
+    padding-block: calc(var(--spacing) * 2);
+    padding-bottom: 7px;
+    gap: calc(var(--spacing) * 4);
+    flex-wrap: nowrap;
+    display: grid;
+  }
+}
+.logo {
+  grid-column: span 2 / span 2;
+}
+.nav-logo {
+  width: fit-content;
+}
+.logo-link {
+  width: calc(var(--spacing) * 16);
+  cursor: pointer;
+}
+/* --- Search Container (outer wrapper) --- */
+.search-container {
+  width: calc(100vw - 24px);
+  height: 56px; /* h-14 */
+}
+
+/* Medium screens (>=768px) */
+@media (min-width: 768px) {
+  .search-container {
+    width: 100%;
+    grid-column: span 6 / span 6;
+    grid-column-start: 3;
+  }
+}
+
+/* Large screens (>=1024px) */
+@media (min-width: 1024px) {
+  .search-container {
+    grid-column: span 4 / span 4;
+    grid-column-start: 4;
+  }
+}
+
+/* Small screens (<768px) */
+@media (max-width: 767px) {
+  .search-container {
+    order: 2;
+  }
+}
+
+/* --- Wrapper --- */
+.search-wrapper {
+  width: 100%;
+  max-width: 614px;
+  margin: 0 auto;
+}
+
+/* --- Inner flexbox --- */
+.search-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Sticky bar inside header */
+.search-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: 614px;
+}
+
+/* Relative wrapper */
+.search-relative {
+  position: relative;
+}
+
+/* Full width holder */
+.search-full {
+  width: 100%;
+}
+
+/* --- Actual Search Bar --- */
+.search-bar {
+  display: flex;
+  align-items: center;
+  min-width: 48px;
+  border: 1px solid transparent;
+  overflow: hidden;
+  background-color: var(--background, #fff);
+  border-radius: 192px;
+  outline: 1px solid var(--border-alpha-1, #ddd);
+  margin: 0 8px;
+  width: calc(100vw - 40px);
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .search-bar {
+    width: 100%;
+  }
+}
+
+.search-bar:hover {
+  border-radius: 12px;
+}
+
+/* --- Icon --- */
+.search-icon-wrapper {
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 24px;
+  color: var(--text-hint, #999);
+}
+
+.search-icon {
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+/* --- Input --- */
+.search-input {
+  flex: 1;
+  background: transparent;
+  padding: 15px 12px;
+  outline: none;
+  border: none;
+  font-size: 0.95rem;
+  color: var(--text-primary, #333);
+  caret-color: var(--sophon-blue-300, #3182ce);
+  transition: all 0.2s ease-in-out;
+}
+
+.search-input::placeholder {
+  color: var(--text-hint, #999);
+}
+
+/* --- Shortcuts (⌘K) --- */
+.search-shortcuts {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .search-shortcuts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-right: 16px;
+  }
+}
+
+.shortcut-group {
+  display: flex;
+  gap: 2px;
+  margin: 0 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.shortcut {
+  border: 1px solid var(--text-tertiary, #bbb);
+  color: var(--text-tertiary, #bbb);
+  background: transparent;
+  border-radius: 4px;
+  padding: 3px 5px;
+  font-size: 0.75rem;
+  min-width: 12px;
+  text-align: center;
+}
+
+.shortcut-hidden {
+  display: none;
+}
+
+/* --- Dropdown container (below search) --- */
+.search-dropdown {
+  position: absolute;
+  top: 81px;
+  left: -12px;
+  z-index: 50;
+  width: 100vw;
+  max-width: 614px;
+}
+
+@media (min-width: 640px) {
+  .search-dropdown {
+    left: 0;
+    width: calc(100vw - 24px);
+  }
+}
+
+@media (min-width: 768px) {
+  .search-dropdown {
+    top: 81px;
+    left: auto;
+    width: 100%;
+  }
+}
+/* outer wrapper */
+.button-wrapper {
+  grid-column: span 2 / -1;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  gap: 0.75rem; /* gap-3 = 12px */
+  padding-right: 0.75rem; /* pr-3 = 12px */
+}
+
+@media (min-width: 768px) {
+  .button-wrapper {
+    padding-right: 0; /* md:pr-0 */
+  }
+}
+
+/* inner flex container */
+.button-inner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  justify-self: end;
+}
+
+/* main button */
+.button-root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 144px;
+  padding: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  max-height: 48px; /* max-h-12 */
+  transition: all 0.2s ease-in-out;
+  background: linear-gradient(72deg, #d6e4ff 12%, #adc8ff 72.12%);
+}
+
+.button-root:hover {
+  border-radius: 8px;
+}
+
+.button-root:active {
+  border-radius: 8px;
+}
+
+.button-root:disabled {
+  pointer-events: none;
+  background: #2a2a2a;
+}
+
+/* inner button content */
+.button-inner {
+  width: 100%;
+  min-width: 0;
+  border-radius: 144px;
+  color: black; /* text-sophon-blue-400 */
+  background-color: #bedbff;
+  height: 44px;
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-inner:hover {
+  border-radius: 6px;
+  background: #bedbff;
+}
+
+.button-inner:active {
+  border-radius: 6px;
+  background: #333333;
+}
+
+.button-inner:disabled {
+  background: transparent;
+}
+
+/* text */
+.button-text-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.button-text {
+  display: inline-block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 12px; /* px-3 */
+}
+
+/* spinner */
+.button-spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.search-container {
+  position: relative; /* ✅ makes dropdown relative to container */
+  display: inline-block;
+}
+
+.search-bar-wrapper {
+  position: relative; /* ✅ ensures dropdown stays under input */
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 100%; /* ✅ exactly under input */
+  left: 0;
+  margin-top: 8px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: 400px;
+  z-index: 1000;
+}
+.dropdown-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.dropdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.dropdown-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dropdown-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 12px;
+  transition: background 0.2s ease;
+}
+
+.dropdown-card:hover {
+  background: #f0f0f0;
+}
+
+.dropdown-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.dropdown-name {
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+.button-text {
+  padding: 12px;
+}
+/* Wrapper */
+.category-wrapper {
+  width: 100%;
+  padding: 0 12px 40px 12px;
+  height: fit-content;
+  grid-column: span 9999 / span 9999;
+}
+
+.category-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+@media (min-width: 1024px) {
+  .category-inner {
+    margin-bottom: 0;
+  }
+}
+
+/* Header */
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+@media (min-width: 768px) {
+  .category-header {
+    padding: 0;
+  }
+}
+
+/* Pills container */
+.pill-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding: 0 12px;
+}
+
+.pill-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+@media (min-width: 768px) {
+  .pill-scroll {
+    padding: 0;
+  }
+}
+
+/* Pill button base */
+.pill-button {
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* default fallback */
+  padding: 7px;
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+  transition: background 0.2s ease;
+}
+
+.pill-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.pill-button:active {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.pill-button:disabled {
+  cursor: not-allowed;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  color: #999;
+}
+
+/* Active pill style */
+.pill-active {
+  border-color: #3b82f6; /* sophon-blue-300 */
+  background: #dbeafe; /* sophon-blue-100 */
+  color: #3b82f6;
+  box-shadow: 0 1px 3px rgba(59, 130, 246, 0.4); /* pill-shadow */
+}
+
+.pill-active:hover {
+  background: #dbeafe;
+}
+
+.pill-active:active {
+  background: #bfdbfe; /* sophon-blue-200 */
+}
+
+/* Label */
+.pill-label {
+  padding: 0 12px;
+}
+
+@media (min-width: 760px) {
+  @media not all and (min-width: 1296px) {
+    .category-links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+.category-links {
+  margin-bottom: 40px;
+  display: grid;
+  gap: 16px;
+}
+
+.category-link {
+  font-size: 0.95rem;
+  color: #2563eb; /* blue-600 */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.category-link :hover {
+  color: #1d4ed8; /* blue-700 */
+}
+/* Hover background */
+@media (hover: hover) {
+  .category-item :hover {
+    background-color: var(--states-hover);
+  }
+}
+
+/* Min-width rule */
+@media (min-width: 576px) {
+  .category-item {
+    min-width: 360px;
+  }
+}
+
+/* Rounded corners */
+.category-item {
+  border-radius: 24px;
+  max-width: 672px;
+  width: 100%;
+  display: flex;
+}
+
+/* Hover shadow for partner-card */
+@media (hover: hover) {
+  .item-image {
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.04),
+      0px 4px 12px 0px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Hover scale for partner-card */
+@media (hover: hover) {
+  .item-image:hover * {
+    transform: scale(1.08);
+  }
+}
+.item-image {
+  transition-duration: 0.7s;
+  transition-property: all;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.3);
+  object-fit: contain;
+  background-repeat: no-repeat;
+  background-color: #f5f5f5; /* example neutral */
+  border-radius: 2px;
+  transform: none;
+
+  max-width: 96px; /* 24 × 4px */
+  width: 96px;
+  max-height: 96px;
+  height: 96px;
+  aspect-ratio: 1 / 1;
+}
+.item-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .item-description {
+    max-width: 236px;
+  }
+}
+.item-description {
+  color: #5c5851;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+}
+.item-buttons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+.category-btn {
+  color: #37f;
+  padding-block: 3px;
+  padding-inline: 8px;
+  background: #ebf4ff;
+  border-color: #cce4ff;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  width: fit-content;
+}
+.view-btn {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cce4ff;
+  font-size: 12px;
+  color: #2a2a2a;
+}
+.view-btn:hover {
+  border-radius: 4px;
+}
+/* Global fixes */
+body,
+html {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll on mobile */
+
+  /* Category wrapper behaves full width on mobile */
+  .category-wrapper {
+    width: 100%;
+    padding: 0 12px;
+    height: fit-content;
+    grid-column: span 9999 / span 9999;
+    overflow-x: hidden; /* stops any extra scroll */
+  }
+
+  /* Make items stack neatly in a list on mobile */
+  .category-links {
+    display: flex;
+    flex-direction: column; /* stack items */
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  /* Each item fills the width, no centering */
+  .category-item {
+    width: 100%;
+    max-width: 100%; /* don't shrink */
+    border-radius: 16px;
+    background: #fff; /* like Sophon */
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Image fixed small square */
+  .item-image img {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  /* Text stays left aligned */
+  .item-content {
+    margin-left: 12px;
+    text-align: left;
+    flex: 1;
+  }
+
+  /* Title bold */
+  .item-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  /* Description small and gray */
+  .item-description {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  /* Buttons aligned right (like Sophon "View") */
+  .item-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+  }
+
+  .view-btn {
+    font-size: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 9999px;
+    padding: 2px 10px;
+    background: #fff;
+    color: #333;
+  }
+  .view-btn:hover {
+    background: #f5f5f5;
+  }
+}
