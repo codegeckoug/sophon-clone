@@ -93,6 +93,14 @@ import Mintify from "./pages/Mintify";
 import MintifyImage from "./pages/Mintify/MintifyImage";
 import MintifyPicture from "./pages/Mintify/MintifyPicture";
 
+import Finance from "./pages/Finance";
+import FinanceImage from "./pages/Finance/FinanceImage";
+import FinancePicture from "./pages/Finance/FinancePicture";
+
+import Debridge from "./pages/Debridge";
+import DebridgeImage from "./pages/Debridge/DebridgeImage";
+import DebridgePicture from "./pages/Debridge/DebridgePicture";
+
 import "./App.css";
 
 function App() {
@@ -214,6 +222,16 @@ function App() {
         <Route path="/mintify" element={<Mintify />} />
         <Route path="/mintifyimage" element={<MintifyImage />} />
         <Route path="/mintifypicture" element={<MintifyPicture />} />
+
+        {/*Finance*/}
+        <Route path="/finance" element={<Finance />} />
+        <Route path="/financeimage" element={<FinanceImage />} />
+        <Route path="/financepicture" element={<FinancePicture />} />
+
+        {/*Debridge*/}
+        <Route path="/debridge" element={<Debridge />} />
+        <Route path="/debridgeimage" element={<DebridgeImage />} />
+        <Route path="/debridgepicture" element={<DebridgePicture />} />
       </Routes>
     </Router>
   );

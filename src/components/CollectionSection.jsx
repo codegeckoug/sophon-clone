@@ -19,6 +19,11 @@ import score from "../assets/scoreplay.webp";
 import brutal from "../assets/brutal.webp";
 import bridge from "../assets/portal.webp";
 import mintify from "../assets/mintify.webp";
+import hedge from "../assets/hedgeempire.svg";
+import rage from "../assets/rageroads.webp";
+import finance from "../assets/stargate.webp";
+import moofo from "../assets/moofo.webp";
+import debridge from "../assets/debridge.webp";
 
 export default function CategoryPills() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -92,7 +97,7 @@ export default function CategoryPills() {
       {
         name: "Pionners of New World",
         url: "/pioneerimage",
-        description: " Feel free to play turn-based strategy game",
+        description: "Feel free to play fun...",
         category: "Gaming",
         image: pioneer,
       },
@@ -166,6 +171,41 @@ export default function CategoryPills() {
         category: "NFT",
         image: mintify,
       },
+      {
+        name: "Hedge Empire",
+        url: "/hedgeimage",
+        description: "Onchain idle-game: build yo....",
+        category: "Gaming",
+        image: hedge,
+      },
+      {
+        name: "Rage Roads",
+        url: "/rageimage",
+        description: "Race-off-road.Compete f..",
+        category: "Gaming",
+        image: rage,
+      },
+      {
+        name: "MOO.F.O",
+        url: "/moofoimage",
+        description: "Rescue cows.Fly UFOs,save the..",
+        category: "Gaming",
+        image: moofo,
+      },
+      {
+        name: "Stargate Finance",
+        url: "/financeimage",
+        description: "The global liquidity layer",
+        category: "DeFi",
+        image: finance,
+      },
+      {
+        name: "deBridge",
+        url: "/debridgeimage",
+        description: " Transfer crypto assets at lightspeed",
+        category: "DeFi",
+        image: debridge,
+      },
     ],
 
     Gaming: [
@@ -225,6 +265,27 @@ export default function CategoryPills() {
         category: "Gaming",
         image: brutal,
       },
+      {
+        name: "Hedge Empire",
+        url: "/hedgeimage",
+        description: "Onchain idle-game: build yo....",
+        category: "Gaming",
+        image: hedge,
+      },
+      {
+        name: "Rage Roads",
+        url: "/rageimage",
+        description: "Race-off-road.Compete f..",
+        category: "Gaming",
+        image: rage,
+      },
+      {
+        name: "MOO.F.O",
+        url: "/moofoimage",
+        description: "Rescue cows.Fly UFOs,save the..",
+        category: "Gaming",
+        image: moofo,
+      },
     ],
 
     DeFi: [
@@ -263,6 +324,20 @@ export default function CategoryPills() {
         description: " A smart yield-generating stable coin",
         category: "DeFi",
         image: noon,
+      },
+      {
+        name: "Stargate Finance",
+        url: "/financeimage",
+        description: "The global liquidity layer",
+        category: "DeFi",
+        image: finance,
+      },
+      {
+        name: "deBridge",
+        url: "/debridgeimage",
+        description: " Transfer crypto assets at lightspeed",
+        category: "DeFi",
+        image: debridge,
       },
     ],
 

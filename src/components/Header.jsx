@@ -23,6 +23,8 @@ import rival from "../assets/rivalry.svg";
 import brutal from "../assets/brutal.webp";
 import bridge from "../assets/portal.webp";
 import mintify from "../assets/mintify.webp";
+import finance from "../assets/stargate.webp";
+import debridge from "../assets/debridge.webp";
 
 const apps = [
   {
@@ -65,6 +67,8 @@ const apps = [
   { name: "Brutal Knights", image: brutal, link: "/brutalimage" },
   { name: "Bridge", image: bridge, link: "/bridgeimage" },
   { name: "Mintify", image: mintify, link: "/mintifyimage" },
+  { name: "Stargate Finance", image: finance, link: "/financeimage" },
+  { name: "deBridge", image: debridge, link: "/debridgeimage" },
 ];
 
 export default function Header() {
