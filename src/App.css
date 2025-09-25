@@ -54,8 +54,7 @@
 }
 /* --- Search Container (outer wrapper) --- */
 .search-container {
-  width: calc(100vw - 24px);
-  height: 56px; /* h-14 */
+  height: 56px;
 }
 
 /* Medium screens (>=768px) */
@@ -79,6 +78,7 @@
 @media (max-width: 767px) {
   .search-container {
     order: 2;
+    margin-top: 12px;
   }
 }
 
@@ -427,7 +427,7 @@
 /* Wrapper */
 .category-wrapper {
   width: 100%;
-  padding: 0 12px 40px 12px;
+  padding: 0 16px 40px 16px;
   height: fit-content;
   grid-column: span 9999 / span 9999;
 }
@@ -665,8 +665,14 @@ body,
 html {
   overflow-x: hidden;
 }
+.header {
+  padding: 12px;
 
-@media (max-width: 768px) {
+  margin-bottom: 1.5rem;
+  margin-top: 20px;
+}
+
+@media (max-width: 767px) {
   /* Prevent horizontal scroll on mobile */
 
   /* Category wrapper behaves full width on mobile */
@@ -702,7 +708,6 @@ html {
   .item-image img {
     width: 64px;
     height: 64px;
-    border-radius: 12px;
     object-fit: cover;
   }
 

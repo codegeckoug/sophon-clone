@@ -439,7 +439,11 @@ export default function CategoryPills() {
                 <img
                   src={link.image}
                   alt={link.name}
-                  style={{ width: "100px", height: "100px" }}
+                  style={{
+                    width: "100px",
+                    height: "100px",
+                    borderRadius: "12px",
+                  }}
                 />
               </div>
               <div className="item-content">

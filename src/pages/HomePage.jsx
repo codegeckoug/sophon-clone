@@ -51,7 +51,7 @@ const WelcomeSection = () => {
 
   // autoplay effect (5 seconds)
   useEffect(() => {
-    const timer = setInterval(nextSlide, 10000);
+    const timer = setInterval(nextSlide, 8000);
     return () => clearInterval(timer);
   }, []);
   return (
